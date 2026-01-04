@@ -26,10 +26,11 @@ if __name__ == "__main__":
     print("4 - Search")
     print("5 - save")
     print("6 - exit")
+    print("7 - Low stock report")
 
     while True:
         try:
-            choice = int(input("Enter your choice (1-6): "))
+            choice = int(input("Enter your choice (1-7): "))
 
             if choice == 1:
                 print("Add item selected")
@@ -48,12 +49,14 @@ if __name__ == "__main__":
                 # call save_inventory()
             elif choice == 6:
                 print("Exiting program. Goodbye!")
+            elif choice == 7:
+                low_stock_report(inventory)
                 break
             else:
-                print("Invalid option. Please choose a number between 1 and 6.")
+                print("Invalid option. Please choose a number between 1 and 7.")
 
         except ValueError:
-            print("Invalid input. Please enter a number (1–6).")
+            print("Invalid input. Please enter a number (1–7).")
 
         except Exception as e:
             print("An unexpected error occurred:", e)
