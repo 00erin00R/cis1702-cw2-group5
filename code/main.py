@@ -99,13 +99,8 @@ def save_inventory(filename, inventory):
         print(f"Updated inventory saved to '{filename}'.")
     except Exception as e:
         print(f"Error saving inventory to '{filename}': {e}")
+
 #6
-def get_next_id(inventory):
-    if len(inventory) == 0:
-        return 1
-    else:
-        return inventory[-1]["id"] + 1
-#7
 #allows input of a value and outputs the related data of all items that are less than provided value
 def low_stock_report(inventory):
     try:
