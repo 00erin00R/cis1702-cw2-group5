@@ -16,7 +16,7 @@ def load_inventory(filename):
 def get_next_id(inventory):
     if not inventory:
         return 1
-    return inventory[-1]["id"] + 1
+    return inventory[-1]['id'] + 1
 #1
 def add_item(inventory):
 
@@ -28,7 +28,7 @@ def add_item(inventory):
         print("Invalid price or quantity.")
         return
     item = {
-        "id": get_next_id(inventory),   #undefined function, will not run currently.
+        "id": get_next_id(inventory),
         "name": name,
         "price": price,
         "quantity": quantity
@@ -45,7 +45,7 @@ def view_stock(inventory):
     print("--------------------------------")
     total_stock = 0
     for item in inventory: #uses for loop to search through the quantity value in inventory
-        print(item["id"], "\t", item["name"], "\t", item["price"], "\t", item["quantity"])
+        print(item["id"], "\t", item['name'], "\t", item['price'], "\t", item['quantity'])
         if item["quantity"] == 0:
             print(f"Out of stock: {item['name']}")
     print(f"Total stock of all items: {total_stock}")
@@ -59,25 +59,25 @@ def update_item(inventory, product_id):
         counter = 0
         if item["id"] == product_id: #uses if statements to prevent user overwriting data by mistake
             print("Item found:")
-            print(f"the selected item is {item["name"]}.")
+            print(f"the selected item is {item['name']}.")
 
             selection = input("Do you want to update this item's name? Y or N: ")
             if selection == "Y":
                 newName = input("Please enter the item's new name: ")
                 item["name"] = newName #replaces data with input 
-                print(f"Changed item name to {item["name"]}.")
+                print(f"the selected item is {item['name']}.")
 
             selection = input("Do you want to update this item's price? Y or N: ")
             if selection == "Y":
                 newPrice = float(input("Please enter new price: "))
                 item["price"] = newPrice
-                print(f"Changed {item["name"]}'s price to {item["price"]}.")
+                print(f"Changed {item['name']}s price to {item['price']}.")
 
             selection = input("Do you want to update this item's amount of stock? Y or N: ")
             if selection == "Y":
-                amount = input("Please enter an amount to update stock by: ")
+                amount = int(input("Please enter an amount to update stock by: "))
                 item["quantity"] += amount #replates data with input plus initial amount rather than overwriting
-                print(f"Restocked {item["name"]}. New amount: {item["quantity"]}")
+                print(f"Restocked {item['name']}. New amount: {item['quantity']}")
 
         else:
             counter=+1
@@ -99,12 +99,7 @@ def save_inventory(filename, inventory):
         print(f"Updated inventory saved to '{filename}'.")
     except Exception as e:
         print(f"Error saving inventory to '{filename}': {e}")
-#6
-def get_next_id(inventory):
-    if len(inventory) == 0:
-        return 1
-    else:
-        return inventory[-1]["id"] + 1
+
 #7
 #allows input of a value and outputs the related data of all items that are less than provided value
 def low_stock_report(inventory):
@@ -153,7 +148,8 @@ if __name__ == "__main__":
                 view_stock(inventory)
             elif choice == 3:
                 print("Update item selected")
-                update_item(inventory)
+                product_id = int(input("Enter product ID to update: "))
+                update_item(inventory, product_id)
             elif choice == 4:
                 print("Search selected")
                 # call search_item()

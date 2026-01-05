@@ -1,6 +1,0 @@
-[
-{"id": 101, "name": "Keyboard & mouse", "price": 20.00, "stock": 31},
-{"id": 102, "name": "RAM", "price": 150.00, "stock": 8},
-{"id": 103, "name": "Monitor", "price": 19.99, "stock": 24},
-{"id": 104, "name": "Headset & microphone", "price": 49.99, "stock": 0}
-]
