@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "name": "ball",
-        "price": 5.0,
-        "quantity": 10
+        "name": "beach ball",
+        "price": 3.0,
+        "quantity": 25
     },
     {
         "id": 2,

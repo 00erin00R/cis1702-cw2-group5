@@ -43,12 +43,10 @@ def view_stock(inventory):
     print("Overall stock: ")
     print("ID\tName\tPrice\tQuantity")
     print("--------------------------------")
-    total_stock = 0
     for item in inventory: #uses for loop to search through the quantity value in inventory
         print(item["id"], "\t", item['name'], "\t", item['price'], "\t", item['quantity'])
         if item["quantity"] == 0:
             print(f"Out of stock: {item['name']}")
-    print(f"Total stock of all items: {total_stock}")
 
 #3
 #changes data for a specific item by searching through by ID,
