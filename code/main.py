@@ -13,13 +13,10 @@ def load_inventory(filename):
         print(f"Error: Failed to decode JSON from '{filename}'.")
         return []
 
-<<<<<<< HEAD
 def get_next_id(inventory):
     if not inventory:
         return 1
     return inventory[-1]["id"] + 1
-=======
->>>>>>> 4f0a62abba68bf0f570dba58bba056e1bba90d90
 #1
 def add_item(inventory):
 
@@ -49,11 +46,7 @@ def view_stock(inventory):
     total_stock = 0
     for item in inventory: #uses for loop to search through the quantity value in inventory
         print(item["id"], "\t", item["name"], "\t", item["price"], "\t", item["quantity"])
-<<<<<<< HEAD
         if item["quantity"] == 0:
-=======
-        if item["stock"] == 0:
->>>>>>> 4f0a62abba68bf0f570dba58bba056e1bba90d90
             print(f"Out of stock: {item['name']}")
     print(f"Total stock of all items: {total_stock}")
 
@@ -83,12 +76,8 @@ def update_item(inventory, product_id):
             selection = input("Do you want to update this item's amount of stock? Y or N: ")
             if selection == "Y":
                 amount = input("Please enter an amount to update stock by: ")
-<<<<<<< HEAD
                 item["quantity"] += amount #replates data with input plus initial amount rather than overwriting
-=======
-                item["stock"] += amount #replates data with input plus initial amount rather than overwriting
->>>>>>> 4f0a62abba68bf0f570dba58bba056e1bba90d90
-                print(f"Restocked {item["name"]}. New amount: {item["stock"]}")
+                print(f"Restocked {item["name"]}. New amount: {item["quantity"]}")
 
         else:
             counter=+1
