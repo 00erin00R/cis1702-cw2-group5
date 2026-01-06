@@ -104,7 +104,8 @@ def search_item(inventory):
 
     if found == False: # if theres no item a message is displayed to the user
         print("There is no item with this name, please try again.")
-
+#extra
+#allows users to earch by price range
 def search_by_price_range(inventory):
     try:
         min_price = float(input("Enter minimum price: "))
