@@ -29,7 +29,6 @@ def add_item(inventory):
         except ValueError:
             print("Invalid price or quantity.")
 
-
     item = {
         "id": get_next_id(inventory),
         "name": name,
