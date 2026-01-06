@@ -169,7 +169,7 @@ if __name__ == "__main__":
                 update_item(inventory, product_id)
             elif choice == 4:
                 print("Search selected")
-                # call search_item()
+                search_item(inventory)
             elif choice == 5:
                 print("Save selected")
                 save_inventory("inventory.json", inventory)
@@ -178,6 +178,7 @@ if __name__ == "__main__":
             elif choice == 7:
                 print("Exiting program. Goodbye!")
                 break
+                
             else:
                 print("Invalid option. Please choose a number between 1 and 7.")
 
