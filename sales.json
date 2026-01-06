@@ -1,0 +1,20 @@
+[
+    {
+        "ID": 1,
+        "Name": "beach ball",
+        "Quantity": 2,
+        "Total_price": 6.0
+    },
+    {
+        "ID": 2,
+        "Name": "hat",
+        "Quantity": 1,
+        "Total_price": 15.0
+    },
+    {
+        "ID": 2,
+        "Name": "hat",
+        "Quantity": 2,
+        "Total_price": 30.0
+    }
+]
