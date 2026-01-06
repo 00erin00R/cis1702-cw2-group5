@@ -1,5 +1,5 @@
 def search_item(inventory):
-    name_search = input("Enter item name to search: ") # finds item in file
+    name_search = input("Please enter the name of the item to begin searching: ") # finds item in file
 
     found = False
 
@@ -15,4 +15,4 @@ def search_item(inventory):
             break
 
     if found == False: # if theres no item a message is displayed to the user
-        print("Item not found.")
+        print("There is no item with this name, please try again.")
