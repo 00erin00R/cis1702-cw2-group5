@@ -140,6 +140,31 @@ def low_stock_report(inventory):
     if not found:
         print("No items are below the threshold.")
 
+#shows the sales history of a selected item. Collects data from sales.json
+def show_sales_history(filename):
+    item_name = input("Enter the name of the item to view sales history: ")
+
+    try:
+        with open(filename, 'r') as f:
+            sales = json.load(f)
+    except FileNotFoundError:
+        print(f"Couldnt find '{filename}'.")
+        return
+    except json.JSONDecodeError:
+        print(f"Could not parse JSON from '{filename}'")
+        return
+        
+    matching_sales = [s for s in sales if s["Name"] == item_name]
+
+    if not matching_sales:
+        print(f"No sales found for '{item_name}'.")
+        return
+
+    print(f"\nSales history for '{item_name}':")
+    for sale in matching_sales:
+        print(f"- Sold {sale['Quantity']} x '{sale['Name']}' (ID: {sale['ID']}) "
+              f"for a total of ${sale['Total_price']}")
+        
 
 if __name__ == "__main__":
 
@@ -153,11 +178,12 @@ if __name__ == "__main__":
     print("4 - Search")
     print("5 - Save")
     print("6 - Low stock report")
-    print("7 - Exit")
+    print("7 - Check sales data")
+    print("8 - Exit")
 
     while True:
         try:
-            choice = int(input("Enter your choice (1-7): "))
+            choice = int(input("Enter your choice (1-8): "))
 
             if choice == 1:
                 print("Add item selected")
@@ -176,16 +202,20 @@ if __name__ == "__main__":
                 print("Save selected")
                 save_inventory("inventory.json", inventory)
             elif choice == 6:
+                print("Low stock report selected")
                 low_stock_report(inventory)
             elif choice == 7:
+                print("Check sales data selected")
+                show_sales_history('sales.json')
+            elif choice == 8:
                 print("Exiting program. Goodbye!")
                 break
                 
             else:
-                print("Invalid option. Please choose a number between 1 and 7.")
+                print("Invalid option. Please choose a number between 1 and 8.")
 
         except ValueError:
-            print("Invalid input. Please enter a number (1-7).")
+            print("Invalid input. Please enter a number (1-8).")
 
         except Exception as e:
             print("An unexpected error occurred:", e)
