@@ -118,8 +118,8 @@ def save_inventory(filename, inventory):
     except Exception as e:
         print(f"Error saving inventory to '{filename}': {e}")
 
-#7
 
+#extra
 #allows input of a value and outputs the related data of all items that are less than provided value
 def low_stock_report(inventory):
     try:
