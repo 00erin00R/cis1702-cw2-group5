@@ -105,7 +105,30 @@ def search_item(inventory):
     if found == False: # if theres no item a message is displayed to the user
         print("There is no item with this name, please try again.")
 
+def search_by_price_range(inventory):
+    try:
+        min_price = float(input("Enter minimum price: "))
+        max_price = float(input("Enter maximum price: "))
+    except ValueError:
+        print("Invalid price input.")
+        return
 
+    if min_price > max_price:
+        print("Minimum price cannot be greater than maximum price.")
+        return
+
+    found = False
+    print("\nItems within price range:")
+    print("ID\tName\tPrice\tQuantity")
+    print("--------------------------------")
+
+    for item in inventory:
+        if min_price <= item["price"] <= max_price:
+            print(item["id"], "\t", item["name"], "\t", item["price"], "\t", item["quantity"])
+            found = True
+
+    if not found:
+        print("No items found in this price range.")
 #5
 #save_inventory function to save updates made to the inventory on an updated file (e.g updated_inventory.json)
 def save_inventory(filename, inventory):
@@ -179,11 +202,14 @@ if __name__ == "__main__":
     print("5 - Save")
     print("6 - Low stock report")
     print("7 - Check sales data")
-    print("8 - Exit")
+    print("8 - Search by price range")
+    print("9 - Exit")
+   
+
 
     while True:
         try:
-            choice = int(input("Enter your choice (1-8): "))
+            choice = int(input("Enter your choice (1-9): "))
 
             if choice == 1:
                 print("Add item selected")
@@ -208,14 +234,17 @@ if __name__ == "__main__":
                 print("Check sales data selected")
                 show_sales_history('sales.json')
             elif choice == 8:
+                print("Search by price range selected")
+                search_by_price_range(inventory)
+            elif choice == 9:
                 print("Exiting program. Goodbye!")
                 break
                 
             else:
-                print("Invalid option. Please choose a number between 1 and 8.")
+                print("Invalid option. Please choose a number between 1 and 9.")
 
         except ValueError:
-            print("Invalid input. Please enter a number (1-8).")
+            print("Invalid input. Please enter a number (1-9).")
 
         except Exception as e:
             print("An unexpected error occurred:", e)
