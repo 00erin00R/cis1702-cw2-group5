@@ -163,7 +163,7 @@ def low_stock_report(inventory):
             found = True
     if not found:
         print("No items are below the threshold.")
-
+#extra
 #shows the sales history of a selected item. Collects data from sales.json
 def show_sales_history(filename):
     item_name = input("Enter the name of the item to view sales history: ")
