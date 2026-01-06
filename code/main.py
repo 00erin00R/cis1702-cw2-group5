@@ -20,13 +20,16 @@ def get_next_id(inventory):
 #1
 def add_item(inventory):
 
-    name = input("Enter item name: ")
-    try:
-        price = float(input("Enter price: "))
-        quantity = int(input("Enter quantity: "))
-    except ValueError:
-        print("Invalid price or quantity.")
-        return
+    while True:
+        name = input("Enter item name: ")
+        try:
+            price = float(input("Enter price: "))
+            quantity = int(input("Enter quantity: "))
+            break
+        except ValueError:
+            print("Invalid price or quantity.")
+
+
     item = {
         "id": get_next_id(inventory),
         "name": name,
